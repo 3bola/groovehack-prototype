@@ -1,0 +1,276 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after {
+  content: '';
+  content: none; }
+
+q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+.clearfix, #header-region, .thumbnail-list ul {
+  *zoom: 1; }
+  .clearfix:before, #header-region:before, .thumbnail-list ul:before, .clearfix:after, #header-region:after, .thumbnail-list ul:after {
+    content: " ";
+    display: table; }
+  .clearfix:after, #header-region:after, .thumbnail-list ul:after {
+    clear: both; }
+
+@font-face {
+  font-family: ProximaRegular;
+  src: url(../fonts/Proxima/ProximaNova-Regular.otf); }
+
+@font-face {
+  font-family: ProximaBold;
+  src: url(../fonts/Proxima/ProximaNova-Bold.otf); }
+
+@font-face {
+  font-family: ProximaSemiBold;
+  src: url(../fonts/Proxima/ProximaNova-Semibold.otf); }
+
+@font-face {
+  font-family: ProximaLight;
+  src: url(../fonts/Proxima/ProximaNova-Light.otf); }
+
+body {
+  font-size: 100%;
+  color: #FFF;
+  line-height: 1.5;
+  font-family: ProximaRegular, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-font-smoothing: antialiased;
+  -ms-font-smoothing: antialiased;
+  -o-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -o-text-size-adjust: 100%;
+  text-size-adjust: 100%; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: normal;
+  color: #FFF;
+  font-family: ProximaSemiBold, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-rendering: optimizeLegibility; }
+
+h1 {
+  font-size: 3rem;
+  line-height: 1;
+  margin-bottom: 0.5em; }
+
+h2 {
+  font-size: 2rem;
+  margin-bottom: 0.75em; }
+
+h3 {
+  font-size: 1.5rem;
+  line-height: 1;
+  margin-bottom: 1em; }
+
+h4 {
+  font-size: 1.2rem;
+  line-height: 1.25;
+  margin-bottom: 1.25rem;
+  height: 1.25rem; }
+
+h5 {
+  font-size: 1rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem; }
+
+h6 {
+  font-size: 1rem;
+  font-weight: bold; }
+
+p {
+  margin: 0 0 1.5rem; }
+
+a:hover, a:active {
+  outline: none; }
+
+a, a:active, a:visited {
+  color: #00d0ff; }
+
+strong {
+  font-weight: bold; }
+
+em, dfn {
+  font-style: italic; }
+
+dfn {
+  font-weight: bold; }
+
+sup, sub {
+  line-height: 0; }
+
+pre, code {
+  white-space: pre; }
+
+pre {
+  white-space: pre;
+  white-space: pre-wrap;
+  white-space: pre-line;
+  word-wrap: break-word; }
+
+li ul, li ol {
+  margin: 0 1.5rem; }
+
+ul, ol {
+  margin: 0 1.5rem 1.5rem 1.5rem; }
+
+ul {
+  list-style-type: disc; }
+
+ol {
+  list-style-type: decimal; }
+
+dl {
+  margin: 0 0 1.5rem 0; }
+
+dl dt {
+  font-weight: bold; }
+
+dd {
+  margin-left: 1.5rem; }
+
+table {
+  width: 100%; }
+
+input[type="radio"] {
+  vertical-align: text-bottom; }
+
+input[type="checkbox"] {
+  vertical-align: bottom;
+  *vertical-align: baseline; }
+
+.ie6 input {
+  vertical-align: text-bottom; }
+
+label, input[type=button], input[type=submit], button {
+  cursor: pointer;
+  -webkit-appearance: none; }
+
+label {
+  font-weight: bold; }
+
+legend {
+  font-weight: bold; }
+
+body {
+  background-color: #000; }
+
+#page {
+  position: relative; }
+
+nav ul {
+  margin: 0; }
+  nav ul li {
+    display: inline-block; }
+    nav ul li.icon a {
+      padding: 0px 10px; }
+      nav ul li.icon a:hover {
+        background-color: transparent !important; }
+    nav ul li a {
+      display: inline-block;
+      padding: 0px 20px; }
+
+#header-region {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  margin-top: 20px; }
+  #header-region .container {
+    height: 66px;
+    background-color: rgba(0, 0, 0, 0.4); }
+  #header-region #logo {
+    display: block;
+    float: left;
+    height: 50px;
+    margin: 0;
+    padding: 8px 0px 8px 40px; }
+  #header-region nav ul {
+    height: 66px;
+    margin: 0px 1.5rem; }
+    #header-region nav ul.primary {
+      float: left; }
+    #header-region nav ul.secondary {
+      float: right;
+      margin-right: 15px; }
+    #header-region nav ul li {
+      height: 66px; }
+      #header-region nav ul li a {
+        font-family: ProximaSemiBold, "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-size: 1rem;
+        color: #FFF;
+        text-transform: uppercase;
+        text-decoration: none;
+        line-height: 66px;
+        letter-spacing: 1px; }
+        #header-region nav ul li a:hover {
+          background-color: rgba(255, 255, 255, 0.1); }
+      #header-region nav ul li.icon i {
+        font-size: 1.25rem; }
+
+#background-region {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  max-height: 1000px;
+  background: transparent url(../img/background.jpg) no-repeat 50% 0%;
+  background-size: cover;
+  z-index: -1; }
+  #background-region:after {
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 300px;
+    content: " ";
+    background-color: transparent;
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, transparent), color-stop(100%, #000000));
+    background-image: -webkit-linear-gradient(top, transparent 0%, #000000 100%);
+    background: -webkit-linear-gradient(top, transparent 0%, #000000 100%);
+    background: linear-gradient(top, transparent 0%, #000000 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$from', endColorstr='$to',GradientType=0 ); }
+
+#main-region {
+  padding-top: 106px; }
+
+.thumbnail-list ul {
+  margin: 0;
+  list-style: none; }
+  .thumbnail-list ul li {
+    margin: 0;
+    display: block;
+    width: 25%;
+    height: 200px;
+    float: left; }

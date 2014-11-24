@@ -39,6 +39,21 @@
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$from', endColorstr='$to',GradientType=0 );
 }
 
+// rotate
+
+@mixin rotate($deg: 0deg) {
+  /* Safari */
+  -webkit-transform: rotate($deg);
+  /* Firefox */
+  -moz-transform: rotate($deg);
+  /* IE */
+  -ms-transform: rotate($deg);
+  /* Opera */
+  -o-transform: rotate($deg);
+  /* Internet Explorer */
+  //filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+}
+
 // .clearfix
 
 .clearfix {

@@ -1,5 +1,17 @@
 $ ->
 
+  $('#logo').click (e) =>
+    e.preventDefault()
+    $('html, body').scrollTop 0
+    $('.pages .page.active').removeClass 'active'
+    $('.pages .page.frontpage').addClass 'active'
+
+  $('*[data-target]').click (e) =>
+    e.preventDefault()
+    $('html, body').scrollTop 0
+    $('.pages .page.active').removeClass 'active'
+    $('.pages .page.' + $(e.currentTarget).data('target')).addClass 'active'
+
   $('.slideshow').each ->
 
     $(this).data 'current-slide', 0

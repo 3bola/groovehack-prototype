@@ -48,7 +48,10 @@ $ ->
     $(window).resize =>
       clearTimeout resizeTimeout
       resizeTimeout = setTimeout =>
-        slideWidth = $(this).width()
+        if $(this).is(':visible')
+          slideWidth = $(this).width()
+        else
+          slideWidth = $(window).width()
         wrapperWidth = $('.slide', this).length * slideWidth
         $('.slide', this).width slideWidth + 'px'
         $('.slides', this).width wrapperWidth + 'px'

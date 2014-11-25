@@ -98,7 +98,7 @@ h3 {
   background: rgba(0, 0, 0, 0.4);
   margin-bottom: 10px; }
 
-.container > h3 {
+.container h3 {
   margin: 0px -20px 10px; }
 
 h4 {
@@ -333,34 +333,33 @@ nav ul {
   width: 100%;
   margin-top: 20px; }
   #footer-region .container {
-    height: 66px;
+    height: 56px;
     background-color: rgba(0, 0, 0, 0.4); }
   #footer-region .copyright {
-    line-height: 66px;
+    line-height: 56px;
     float: left;
     padding: 0px 30px;
     opacity: 0.5;
     font-size: 12px;
     text-transform: uppercase; }
   #footer-region nav ul {
-    height: 66px;
+    height: 56px;
     margin: 0px;
     float: right;
     margin-right: 20px; }
     #footer-region nav ul li {
-      height: 66px; }
+      height: 56px; }
       #footer-region nav ul li a {
         font-family: ProximaSemiBold, "Helvetica Neue", Helvetica, Arial, sans-serif;
-        font-size: 1rem;
+        font-size: 0.9rem;
         color: #FFF;
         text-transform: uppercase;
         text-decoration: none;
-        line-height: 66px;
-        letter-spacing: 1px; }
+        line-height: 56px; }
         #footer-region nav ul li a:hover {
           background-color: rgba(255, 255, 255, 0.1); }
       #footer-region nav ul li.icon i {
-        font-size: 1.25rem; }
+        font-size: 1rem; }
 
 #page.page-frontpage .slideshow .container {
   position: absolute;
@@ -437,7 +436,7 @@ nav ul {
   .thumbnail-list ul li {
     display: block;
     width: 24.25%;
-    height: 200px;
+    height: 220px;
     float: left;
     margin: 0 1% 1% 0;
     background-color: rgba(0, 0, 0, 0.4); }
@@ -448,7 +447,9 @@ nav ul {
     width: 100%;
     height: 100%;
     overflow: hidden;
-    cursor: pointer; }
+    cursor: pointer;
+    background-size: cover;
+    background-position: 50% 50%; }
     .thumbnail-list ul .thumbnail .details {
       position: absolute;
       width: 100%;
@@ -463,11 +464,11 @@ nav ul {
     .thumbnail-list ul .thumbnail.thumbnail-artist:before, .thumbnail-list ul .thumbnail.thumbnail-venue:before {
       position: absolute;
       left: 50%;
-      margin-left: -100px;
+      margin-left: -110px;
       display: block;
       content: '';
-      width: 200px;
-      height: 200px;
+      width: 220px;
+      height: 220px;
       background-color: #000;
       opacity: 0.7;
       -webkit-transition: all 0.2s ease-in-out;
@@ -477,7 +478,7 @@ nav ul {
       width: 280px;
       height: 280px;
       margin-left: -140px;
-      margin-top: -40px; }
+      margin-top: -30px; }
     .thumbnail-list ul .thumbnail.thumbnail-artist .details, .thumbnail-list ul .thumbnail.thumbnail-venue .details {
       top: 50%;
       -webkit-transform: translateY(-50%);
@@ -501,9 +502,15 @@ nav ul {
           -ms-transform: rotate(45deg);
               transform: rotate(45deg); }
     .thumbnail-list ul .thumbnail.thumbnail-set .details {
+      top: 105px;
       bottom: 0px;
-      padding-bottom: 20px; }
+      padding-bottom: 0px;
+      background-color: rgba(0, 0, 0, 0.7);
+      margin: 0px;
+      -webkit-transition: top 0.2s ease-in-out;
+              transition: top 0.2s ease-in-out; }
       .thumbnail-list ul .thumbnail.thumbnail-set .details span.artist {
+        margin-top: 15px;
         margin-bottom: 0.2rem; }
       .thumbnail-list ul .thumbnail.thumbnail-set .details span.venue {
         font-size: 1rem; }
@@ -514,6 +521,10 @@ nav ul {
           height: 1px;
           margin: 0.5rem auto;
           border-top: 1px solid rgba(255, 255, 255, 0.8); }
+      .thumbnail-list ul .thumbnail.thumbnail-set .details span.genre {
+        margin-bottom: 15px; }
+    .thumbnail-list ul .thumbnail.thumbnail-set:hover .details {
+      top: 0px; }
 
 .details {
   overflow: hidden;
@@ -577,7 +588,8 @@ nav ul {
       .details .share .share-links a {
         display: inline-block;
         padding: 0px 10px;
-        font-size: 20px;
+        font-size: 22px;
+        line-height: 22px;
         color: white; }
 
 .ad {

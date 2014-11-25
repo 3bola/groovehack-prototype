@@ -128,7 +128,7 @@ nav {
 	width: 100%;
 	height: 100%;
 	max-height: 1000px;
-	background: transparent url(../img/background.jpg) no-repeat 50% 0%;
+	background: transparent url(../img/backgrounds/default-1.jpg) no-repeat 50% 0%;
 	background-size: cover;
 	z-index: -1;
 	&:after {
@@ -280,9 +280,11 @@ nav {
 	margin: 0 auto 10px;
 }
 
+// 640x360
+// 853x480
+// 1280x720
+
 #video {
-	// 640 / 360
-	// 650 / 365,625
 	width: 650px;
 	height: 366px;
 	margin-right: 310px;
@@ -300,7 +302,7 @@ nav {
 		position: relative;
 		display: block;
 		background-color: rgba(0, 0, 0, 0.4);
-		padding: 20px 30px;
+		padding: 20px 20px;
 		margin-bottom: 5px;
 		cursor: pointer;
 		.title {
@@ -332,8 +334,8 @@ nav {
 					height: 15px;
 					border-right: 3px solid #000;
 					margin-right: 2px;
-					animation-name: playingBars;
 					animation-duration: 1s;
+					opacity: .8;
 					animation-iteration-count: infinite;
 					animation-timing-function: ease-in-out;
 					&:nth-child(1) { animation-delay: .1s; animation-duration: 1s; }
@@ -361,6 +363,9 @@ nav {
 			.links {
 				.now-playing {
 					display: inline-block;
+					span {
+						animation-name: playingBars;
+					}
 				}
 				a {
 					color: black;
@@ -437,6 +442,28 @@ nav {
 				&.track-9 { left: 94%; }
 			}
 		}
+	}
+}
+
+@media all and(min-width: 1250px) {
+	.page.set {
+		#content {
+			width: 1183px;
+			margin: 0px auto;
+		}
+	}
+	#player {
+		width: 1183px;
+	}
+	#video {
+		width: 873px;
+		height: 491px;
+	}
+	#timeline {
+		width: 873px;
+	}
+	#playlist {
+		height: 533px;
 	}
 }
 

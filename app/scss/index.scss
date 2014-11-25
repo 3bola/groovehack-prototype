@@ -3,6 +3,21 @@ $blue: #00d0ff;
 $text-color: #FFF;
 $link-color: $blue;
 
+@keyframes playingBars {
+	0% {
+		margin-top: 13px;
+		height: 2px;
+	}
+	50% {
+		margin-top: 0px;
+		height: 15px;
+	}
+	100% {
+		margin-top: 13px;
+		height: 2px;
+	}
+}
+
 @import "_reset";
 @import "utilities";
 @import "typography";

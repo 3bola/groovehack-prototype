@@ -1,3 +1,29 @@
+@-webkit-keyframes playingBars {
+  0% {
+    margin-top: 13px;
+    height: 2px; }
+
+  50% {
+    margin-top: 0px;
+    height: 15px; }
+
+  100% {
+    margin-top: 13px;
+    height: 2px; } }
+
+@keyframes playingBars {
+  0% {
+    margin-top: 13px;
+    height: 2px; }
+
+  50% {
+    margin-top: 0px;
+    height: 15px; }
+
+  100% {
+    margin-top: 13px;
+    height: 2px; } }
+
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
    License: none (public domain)
@@ -35,12 +61,12 @@ table {
   border-collapse: collapse;
   border-spacing: 0; }
 
-.clearfix, dl.horizontal, #header-region, #footer-region, .slideshow .bullets, .slideshow .slides, .thumbnail-list ul, .details, .details .details-col, .details .share .content {
+.clearfix, dl.horizontal, #header-region, #footer-region, #timeline, .slideshow .bullets, .slideshow .slides, .thumbnail-list ul, .details, .details .details-col, .details .share .content {
   *zoom: 1; }
-  .clearfix:before, dl.horizontal:before, #header-region:before, #footer-region:before, .slideshow .bullets:before, .slideshow .slides:before, .thumbnail-list ul:before, .details:before, .details .details-col:before, .details .share .content:before, .clearfix:after, dl.horizontal:after, #header-region:after, #footer-region:after, .slideshow .bullets:after, .slideshow .slides:after, .thumbnail-list ul:after, .details:after, .details .details-col:after, .details .share .content:after {
+  .clearfix:before, dl.horizontal:before, #header-region:before, #footer-region:before, #timeline:before, .slideshow .bullets:before, .slideshow .slides:before, .thumbnail-list ul:before, .details:before, .details .details-col:before, .details .share .content:before, .clearfix:after, dl.horizontal:after, #header-region:after, #footer-region:after, #timeline:after, .slideshow .bullets:after, .slideshow .slides:after, .thumbnail-list ul:after, .details:after, .details .details-col:after, .details .share .content:after {
     content: " ";
     display: table; }
-  .clearfix:after, dl.horizontal:after, #header-region:after, #footer-region:after, .slideshow .bullets:after, .slideshow .slides:after, .thumbnail-list ul:after, .details:after, .details .details-col:after, .details .share .content:after {
+  .clearfix:after, dl.horizontal:after, #header-region:after, #footer-region:after, #timeline:after, .slideshow .bullets:after, .slideshow .slides:after, .thumbnail-list ul:after, .details:after, .details .details-col:after, .details .share .content:after {
     clear: both; }
 
 @font-face {
@@ -91,22 +117,24 @@ h2 {
 
 h3 {
   font-size: 1rem;
-  line-height: 1;
+  line-height: 66px;
   margin-bottom: 1em;
   text-transform: uppercase;
-  padding: 20px 30px;
+  padding: 0px 30px;
   background: rgba(0, 0, 0, 0.4);
-  margin-bottom: 10px; }
+  margin-bottom: 10px;
+  letter-spacing: 2px; }
 
-.container h3 {
+header h3 {
   margin: 0px -20px 10px; }
 
 h4 {
   font-size: 1.1rem;
-  line-height: 1.25;
-  margin-bottom: 1.7rem;
-  height: 1.25rem;
-  text-transform: uppercase; }
+  line-height: 66px;
+  height: 66px;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 2px; }
 
 h5 {
   font-size: 1rem;
@@ -210,17 +238,19 @@ body {
 
 #page {
   position: relative;
-  min-height: 100%;
-  padding-bottom: 76px; }
+  min-height: 100%; }
 
 nav ul {
   margin: 0; }
   nav ul li {
     display: inline-block; }
     nav ul li.icon a {
-      padding: 0px 10px; }
-      nav ul li.icon a:hover {
-        background-color: transparent !important; }
+      width: 20px;
+      text-align: center; }
+    nav ul li.icon.facebook a {
+      padding: 0px 18px 0px 20px; }
+    nav ul li.icon.twitter a {
+      padding: 0px 16px 0px 18px; }
     nav ul li a {
       display: inline-block;
       padding: 0px 20px; }
@@ -244,12 +274,13 @@ nav ul {
     #header-region #logo small {
       display: block;
       position: absolute;
-      top: 23px;
+      top: 24px;
       right: 0px;
       text-decoration: none;
       color: white;
       opacity: 0.4;
-      font-size: 13px;
+      font-size: 12px;
+      letter-spacing: 0px;
       /* Safari */
       -webkit-transform: rotate(-90deg);
       /* Firefox */
@@ -276,7 +307,7 @@ nav ul {
         text-transform: uppercase;
         text-decoration: none;
         line-height: 66px;
-        letter-spacing: 1px; }
+        letter-spacing: 2px; }
         #header-region nav ul li a:hover {
           background-color: rgba(255, 255, 255, 0.1); }
       #header-region nav ul li.icon i {
@@ -321,7 +352,8 @@ nav ul {
     text-shadow: 0px 0px 10px #000; }
 
 #main-region {
-  padding-top: 106px; }
+  padding-top: 106px;
+  padding-bottom: 56px; }
 
 #content .container {
   padding: 0px 20px; }
@@ -358,10 +390,12 @@ nav ul {
         line-height: 56px; }
         #footer-region nav ul li a:hover {
           background-color: rgba(255, 255, 255, 0.1); }
+      #footer-region nav ul li.icon a {
+        width: 10px; }
       #footer-region nav ul li.icon i {
         font-size: 1rem; }
 
-#page.page-frontpage .slideshow .container {
+.page.frontpage .slideshow .container {
   position: absolute;
   width: 100%;
   top: 50%;
@@ -369,13 +403,183 @@ nav ul {
       -ms-transform: translateY(-50%);
           transform: translateY(-50%);
   text-align: center; }
-#page.page-frontpage .slideshow .slide {
+.page.frontpage .slideshow .slide {
   font-size: 6rem; }
 
 .pages .page {
   display: none; }
   .pages .page.active {
     display: block; }
+
+.page.set #hero {
+  height: 240px; }
+  .page.set #hero h2 small {
+    display: block;
+    font-size: 2rem; }
+.page.set #content {
+  width: 960px;
+  margin: 0 auto; }
+  .page.set #content .container {
+    padding: 0px; }
+
+#player {
+  width: 960px;
+  margin: 0 auto 10px; }
+
+#video {
+  width: 650px;
+  height: 366px;
+  margin-right: 310px;
+  background-color: black; }
+
+#playlist {
+  float: right;
+  width: 300px;
+  height: 408px;
+  background-color: transparent;
+  overflow-x: hidden;
+  overflow-y: scroll; }
+  #playlist .track {
+    position: relative;
+    display: block;
+    background-color: rgba(0, 0, 0, 0.4);
+    padding: 20px 30px;
+    margin-bottom: 5px;
+    cursor: pointer; }
+    #playlist .track .title {
+      font-family: ProximaSemiBold, "Helvetica Neue", Helvetica, Arial, sans-serif;
+      margin-bottom: 0.4rem;
+      font-size: 1.2rem; }
+    #playlist .track .artist {
+      opacity: 0.8; }
+    #playlist .track .links {
+      position: absolute;
+      top: 0px;
+      right: 15px;
+      width: 90px;
+      height: 24px;
+      text-align: right; }
+      #playlist .track .links .now-playing {
+        display: none;
+        position: relative;
+        top: -2px;
+        width: 24px;
+        height: 24px;
+        text-align: center;
+        font-size: 0px; }
+        #playlist .track .links .now-playing span {
+          display: inline-block;
+          width: 1px;
+          height: 15px;
+          border-right: 3px solid #000;
+          margin-right: 2px;
+          -webkit-animation-name: playingBars;
+                  animation-name: playingBars;
+          -webkit-animation-duration: 1s;
+                  animation-duration: 1s;
+          -webkit-animation-iteration-count: infinite;
+                  animation-iteration-count: infinite;
+          -webkit-animation-timing-function: ease-in-out;
+                  animation-timing-function: ease-in-out; }
+          #playlist .track .links .now-playing span:nth-child(1) {
+            -webkit-animation-delay: 0.1s;
+                    animation-delay: 0.1s;
+            -webkit-animation-duration: 1s;
+                    animation-duration: 1s; }
+          #playlist .track .links .now-playing span:nth-child(2) {
+            -webkit-animation-delay: 0s;
+                    animation-delay: 0s;
+            -webkit-animation-duration: 1.2s;
+                    animation-duration: 1.2s; }
+          #playlist .track .links .now-playing span:nth-child(3) {
+            -webkit-animation-delay: 0.2s;
+                    animation-delay: 0.2s;
+            -webkit-animation-duration: 1.1s;
+                    animation-duration: 1.1s; }
+      #playlist .track .links a {
+        width: 24px;
+        height: 24px;
+        display: none;
+        font-size: 20px;
+        padding: 27px 5px 26px;
+        line-height: 24px;
+        color: white;
+        opacity: 0.5; }
+        #playlist .track .links a:hover {
+          opacity: 1; }
+    #playlist .track.current {
+      background-color: rgba(255, 255, 255, 0.8);
+      color: black; }
+      #playlist .track.current .links .now-playing {
+        display: inline-block; }
+      #playlist .track.current .links a {
+        color: black;
+        display: inline-block; }
+    #playlist .track:hover .download {
+      display: inline-block; }
+
+#timeline {
+  width: 650px;
+  height: 42px;
+  background-color: rgba(0, 0, 0, 0.4); }
+  #timeline .play, #timeline .current-time {
+    float: left;
+    width: 42px;
+    height: 42px;
+    line-height: 42px;
+    text-align: center; }
+  #timeline .total-time, #timeline .volume {
+    float: right;
+    width: 42px;
+    height: 42px;
+    line-height: 42px;
+    text-align: center; }
+  #timeline .bar {
+    position: relative;
+    display: block;
+    height: 42px;
+    overflow: hidden;
+    padding: 0px 10px; }
+    #timeline .bar .line {
+      position: relative;
+      margin-top: 20px;
+      display: block;
+      border-top: 1px solid rgba(255, 255, 255, 0.5); }
+    #timeline .bar .pos {
+      position: absolute;
+      top: -5px;
+      left: 0%;
+      display: block;
+      background-color: white;
+      width: 9px;
+      height: 9px;
+      margin-left: -4px;
+      border-radius: 100%; }
+    #timeline .bar .tracks .track {
+      position: absolute;
+      left: 0%;
+      width: 1px;
+      height: 13px;
+      margin-top: -7px;
+      background-color: #00d0ff; }
+      #timeline .bar .tracks .track.track-1 {
+        left: 0%; }
+      #timeline .bar .tracks .track.track-2 {
+        left: 8%; }
+      #timeline .bar .tracks .track.track-3 {
+        left: 22%; }
+      #timeline .bar .tracks .track.track-4 {
+        left: 34%; }
+      #timeline .bar .tracks .track.track-5 {
+        left: 55%; }
+      #timeline .bar .tracks .track.track-6 {
+        left: 60%; }
+      #timeline .bar .tracks .track.track-7 {
+        left: 77%; }
+      #timeline .bar .tracks .track.track-8 {
+        left: 81%; }
+      #timeline .bar .tracks .track.track-9 {
+        left: 94%; }
 
 .slideshow {
   position: relative;
@@ -525,6 +729,10 @@ nav ul {
         margin-bottom: 15px; }
     .thumbnail-list ul .thumbnail.thumbnail-set:hover .details {
       top: 0px; }
+.thumbnail-list.thumbnail-list-2 ul li {
+  width: 49.5%; }
+  .thumbnail-list.thumbnail-list-2 ul li:nth-child(2n) {
+    margin-right: 0; }
 
 .details {
   overflow: hidden;
@@ -536,14 +744,14 @@ nav ul {
     overflow: hidden;
     height: 100%;
     margin-right: 310px; }
+  .details .credits-col {
+    margin-right: 310px; }
   .details .other-col {
     float: right;
     width: 300px;
-    height: 341px; }
+    height: 326px; }
   .details .bio, .details .overview {
-    float: left;
-    width: 59%;
-    margin-right: 1%;
+    margin-right: 310px;
     background-color: rgba(0, 0, 0, 0.4);
     height: 100%;
     overflow-y: scroll;
@@ -568,29 +776,36 @@ nav ul {
     .details .bio::-webkit-scrollbar-corner, .details .overview::-webkit-scrollbar-corner {
       background-color: transparent; }
   .details .info {
-    float: left;
-    width: 40%;
+    float: right;
+    width: 300px;
     background-color: rgba(0, 0, 0, 0.4);
     height: 100%; }
   .details .content {
-    padding: 30px; }
+    padding: 0px 30px 30px; }
   .details .share {
     background-color: rgba(0, 0, 0, 0.4);
     margin-bottom: 10px; }
+    .details .share .content {
+      padding: 0px; }
     .details .share h4 {
       float: left;
       margin: 0;
-      line-height: 1.6em; }
+      padding: 0px 0px 0px 30px;
+      line-height: 1.6em;
+      line-height: 66px; }
     .details .share .share-links {
-      margin-right: 10px;
+      margin-right: 0px;
       float: right;
-      text-align: center; }
+      text-align: center;
+      height: 66px; }
       .details .share .share-links a {
         display: inline-block;
-        padding: 0px 10px;
+        width: 58px;
         font-size: 22px;
-        line-height: 22px;
+        line-height: 66px;
         color: white; }
+        .details .share .share-links a:hover {
+          background-color: rgba(255, 255, 255, 0.2); }
 
 .ad {
   width: 300px;

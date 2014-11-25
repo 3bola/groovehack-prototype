@@ -59,23 +59,26 @@ h2 {
 
 h3 {
   font-size: 1rem;
-  line-height: 1;
+  //line-height: 1;
+  line-height: 66px;
   margin-bottom: 1em;
   text-transform: uppercase;
-  padding: 20px 30px;
+  padding: 0px 30px;
   background: rgba(0, 0, 0, 0.4);
   margin-bottom: 10px;
+  letter-spacing: 2px;
 }
-.container h3 {
+header h3 {
   margin: 0px -20px 10px;
 }
 
 h4 {
   font-size: 1.1rem;
-  line-height: 1.25;
-  margin-bottom: 1.7rem;
-  height: 1.25rem;
+  line-height: 66px;
+  height: 66px;
+  margin: 0;
   text-transform: uppercase;
+  letter-spacing: 2px;
 }
 
 h5 {

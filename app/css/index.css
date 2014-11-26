@@ -419,6 +419,7 @@ nav ul {
     max-height: 1000px;
     background-repeat: no-repeat;
     background-size: cover;
+    background-position: 50% 0%;
     z-index: -1; }
     .pages .page .background:after {
       display: block;
@@ -744,7 +745,7 @@ nav ul {
           -ms-transform: rotate(45deg);
               transform: rotate(45deg); }
     .thumbnail-list ul .thumbnail.thumbnail-set .details {
-      top: 105px;
+      top: 125px;
       bottom: 0px;
       padding-bottom: 0px;
       background-color: rgba(0, 0, 0, 0.7);

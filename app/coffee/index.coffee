@@ -12,7 +12,7 @@ $ ->
     $('.pages .page.active').removeClass 'active'
     $('.pages .page.' + $(e.currentTarget).data('target')).addClass 'active'
     switch $(e.currentTarget).data('target')
-      when 'set' then @Player.initPlayer Data.Sets[1]
+      when 'set' then @Player.initPlayer Data.Sets[0]
       else @Player.destroyPlayer()
 
   $('.slideshow').each ->

@@ -646,7 +646,7 @@ nav {
 					padding-bottom: 0px;
 					background-color: rgba(0, 0, 0, 0.7);
 					margin: 0px;
-					transition: top .2s ease-in-out;
+					transition: top .2s ease-in-out, background-color .2s ease-in-out;
 					span {
 						&.artist {
 							margin-top: 15px;
@@ -671,6 +671,7 @@ nav {
 				&:hover {
 					.details {
 						top: 0px;
+						background-color: rgba(0, 0, 0, 0.8);
 					}
 				}
 			}

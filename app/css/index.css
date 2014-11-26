@@ -750,8 +750,8 @@ nav ul {
       padding-bottom: 0px;
       background-color: rgba(0, 0, 0, 0.7);
       margin: 0px;
-      -webkit-transition: top 0.2s ease-in-out;
-              transition: top 0.2s ease-in-out; }
+      -webkit-transition: top 0.2s ease-in-out, background-color 0.2s ease-in-out;
+              transition: top 0.2s ease-in-out, background-color 0.2s ease-in-out; }
       .thumbnail-list ul .thumbnail.thumbnail-set .details span.artist {
         margin-top: 15px;
         margin-bottom: 0.2rem; }
@@ -767,7 +767,8 @@ nav ul {
       .thumbnail-list ul .thumbnail.thumbnail-set .details span.genre {
         margin-bottom: 15px; }
     .thumbnail-list ul .thumbnail.thumbnail-set:hover .details {
-      top: 0px; }
+      top: 0px;
+      background-color: rgba(0, 0, 0, 0.8); }
 .thumbnail-list.thumbnail-list-2 ul li {
   width: 49.5%; }
   .thumbnail-list.thumbnail-list-2 ul li:nth-child(2n) {

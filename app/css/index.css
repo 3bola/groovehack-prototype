@@ -493,31 +493,11 @@ nav ul {
         #playlist .track .links .now-playing span {
           display: inline-block;
           width: 1px;
-          height: 15px;
+          height: 2px;
+          margin-top: 13px;
           border-right: 3px solid #000;
           margin-right: 2px;
-          -webkit-animation-duration: 1s;
-                  animation-duration: 1s;
-          opacity: 0.8;
-          -webkit-animation-iteration-count: infinite;
-                  animation-iteration-count: infinite;
-          -webkit-animation-timing-function: ease-in-out;
-                  animation-timing-function: ease-in-out; }
-          #playlist .track .links .now-playing span:nth-child(1) {
-            -webkit-animation-delay: 0.1s;
-                    animation-delay: 0.1s;
-            -webkit-animation-duration: 1s;
-                    animation-duration: 1s; }
-          #playlist .track .links .now-playing span:nth-child(2) {
-            -webkit-animation-delay: 0s;
-                    animation-delay: 0s;
-            -webkit-animation-duration: 1.2s;
-                    animation-duration: 1.2s; }
-          #playlist .track .links .now-playing span:nth-child(3) {
-            -webkit-animation-delay: 0.2s;
-                    animation-delay: 0.2s;
-            -webkit-animation-duration: 1.1s;
-                    animation-duration: 1.1s; }
+          opacity: 0.8; }
       #playlist .track .links a {
         width: 24px;
         height: 24px;
@@ -535,13 +515,41 @@ nav ul {
       #playlist .track.current .links .now-playing {
         display: inline-block; }
         #playlist .track.current .links .now-playing span {
-          -webkit-animation-name: playingBars;
-                  animation-name: playingBars; }
+          -webkit-animation-duration: 9999s;
+                  animation-duration: 9999s; }
       #playlist .track.current .links a {
         color: black;
         display: inline-block; }
     #playlist .track:hover .download {
       display: inline-block; }
+  #playlist.playing .track .links .now-playing span {
+    -webkit-animation-name: playingBars;
+            animation-name: playingBars;
+    -webkit-animation-iteration-count: infinite;
+            animation-iteration-count: infinite;
+    -webkit-animation-timing-function: ease-in-out;
+            animation-timing-function: ease-in-out; }
+    #playlist.playing .track .links .now-playing span:nth-child(1) {
+      -webkit-animation-delay: 0.1s;
+              animation-delay: 0.1s;
+      -webkit-animation-duration: 1s;
+              animation-duration: 1s;
+      -webkit-animation-name: playingBars;
+              animation-name: playingBars; }
+    #playlist.playing .track .links .now-playing span:nth-child(2) {
+      -webkit-animation-delay: 0s;
+              animation-delay: 0s;
+      -webkit-animation-duration: 1.2s;
+              animation-duration: 1.2s;
+      -webkit-animation-name: playingBars;
+              animation-name: playingBars; }
+    #playlist.playing .track .links .now-playing span:nth-child(3) {
+      -webkit-animation-delay: 0.2s;
+              animation-delay: 0.2s;
+      -webkit-animation-duration: 1.1s;
+              animation-duration: 1.1s;
+      -webkit-animation-name: playingBars;
+              animation-name: playingBars; }
 
 #timeline {
   width: 650px;
@@ -553,6 +561,15 @@ nav ul {
     height: 42px;
     line-height: 42px;
     text-align: center; }
+  #timeline .play {
+    cursor: pointer; }
+    #timeline .play .fa-pause {
+      display: none;
+      line-height: 42px; }
+    #timeline .play.playing .fa-pause {
+      display: block; }
+    #timeline .play.playing .fa-play {
+      display: none; }
   #timeline .total-time, #timeline .volume {
     float: right;
     width: 42px;
@@ -567,7 +584,7 @@ nav ul {
     padding: 0px 10px; }
     #timeline .bar .line {
       position: relative;
-      margin-top: 20px;
+      margin: 20px 0px;
       display: block;
       border-top: 1px solid rgba(255, 255, 255, 0.5); }
     #timeline .bar .pos {

@@ -61,18 +61,41 @@ $ ->
         goTo $(this).data 'current-slide'
       , 400
 
+  $('#timeline .play').on 'click', (e) =>
+    return if !@Player.player
+    if @Player.isPlaying
+      @Player.player.pauseVideo()
+    else
+      @Player.player.playVideo()
+
+  $('#timeline .bar').on 'click', (e) =>
+    return if !@Player.player
+    w = $('#timeline .line').width()
+    pos = (e.pageX - e.currentTarget.offsetLeft) - 10
+    pos = 0 if pos < 0
+    pos = w if pos > w
+    pos = pos / w
+    s = Math.round(pos * @Player.duration)
+    @Player.player.seekTo(s)
+
+  $('#playlist').on 'click', '.track', (e) =>
+    return if !@Player.player
+    @Player.player.seekTo $(e.currentTarget).data('start')
+
   @Player =
 
-    destroyPlayer: =>
+    destroyPlayer: ->
       @player = null
       clearInterval @durationInt
       $('#video').html $('<div id="youtube-player"></div>')
 
-    initPlayer: (@setData) =>
+    initPlayer: (@setData) ->
 
       $video    = $('#video')
       $controls = $('#timeline')
       $playlist = $('#playlist')
+
+      $controls.find('play').removeClass 'playing'
 
       # populate tracks
       tracks = document.createDocumentFragment()
@@ -86,6 +109,7 @@ $ ->
         if play
           @isPlaying = true
           $controls.find('.play').addClass 'playing'
+          $playlist.addClass 'playing'
           @durationInt = setInterval =>
             @currentTime = @player.getCurrentTime()
             l = null
@@ -100,11 +124,11 @@ $ ->
             s = Math.floor(@currentTime%60)
             s = '0' + s if s < 10
             $controls.find('.current-time').html Math.floor(@currentTime/60) + ':' + s
-            console.log 'tracking', $playlist.find('.track[data-start="' + l.startsAt + '"]')
           , 500
         else
           @isPlaying = false
           $controls.find('.play').removeClass 'playing'
+          $playlist.removeClass 'playing'
           clearInterval @durationInt
 
       @onPlayerReady = (e) =>

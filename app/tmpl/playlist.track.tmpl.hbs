@@ -1,11 +1,11 @@
 <div class="track" data-start="{{startsAt}}">
   <div class="links">
     <div class="now-playing"><span></span><span></span><span></span></div>
-    <a href="{{link}}" class="download"><i class="fa fa-download"></i>{{#if free}}<span class="free">FREE</span>{{/if}}</a>
+    <a href="{{link}}" class="download{{#if free}} is-free{{/if}}"><i class="fa fa-download"></i>{{#if free}}<span class="free">FREE</span>{{/if}}</a>
   </div>
   <div class="info">
-    <div class="title">{{#if titleScrolling}}<marquee behavior="scroll" direction="left" scrollamount="1">{{/if}}{{title}}{{#if titleScrolling}}</marquee>{{/if}}</div>
-    <div class="artist">{{#if artistScrolling}}<marquee behavior="scroll" direction="left" scrollamount="1">{{/if}}{{artist}}{{#if artistScrolling}}</marquee>{{/if}}</div>
+    <div class="title{{#if titleScrolling}} scroll{{/if}}">{{#if titleScrolling}}<marquee behavior="scroll" direction="left" scrollamount="3">{{/if}}{{title}}{{#if titleScrolling}}</marquee>{{/if}}</div>
+    <div class="artist">{{#if artistScrolling}}<marquee behavior="scroll" direction="left" scrollamount="3">{{/if}}{{artist}}{{#if artistScrolling}}</marquee>{{/if}}</div>
   </div>
   <div class="download-links">
     <a href="#" class="download-link itunes">iTunes</a>

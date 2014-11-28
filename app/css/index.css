@@ -156,7 +156,7 @@ a:hover, a:active {
 
 a, a:active, a:visited {
   color: white;
-  font-weight: bold;
+  font-weight: normal;
   -webkit-transition: color 0.1s ease-in-out;
           transition: color 0.1s ease-in-out; }
 

@@ -44,6 +44,7 @@ nav {
 			a {
 				display: inline-block;
 				padding: 0px 20px;
+				transition: background-color .1s ease-in-out;
 			}
 		}
 	}
@@ -167,6 +168,8 @@ nav {
 #main-region {
 	padding-top: 106px;
 	padding-bottom: 56px;
+	max-width: 1400px;
+	margin: 0 auto;
 }
 
 // Content
@@ -213,8 +216,10 @@ nav {
 					text-transform: uppercase;
 					text-decoration: none;
 					line-height: 56px;
+					opacity: 0.5;
 					&:hover {
-						background-color: rgba(255, 255, 255, 0.1)
+						background-color: rgba(255, 255, 255, 0.1);
+						opacity: 0.9;
 					}
 				}
 				&.icon {
@@ -324,9 +329,21 @@ nav {
 		position: relative;
 		display: block;
 		background-color: rgba(0, 0, 0, 0.4);
-		padding: 20px 20px;
 		margin-bottom: 5px;
-		cursor: pointer;
+		height: 77px;
+		overflow: hidden;
+		transition: height .4s ease-in-out;
+		&.open {
+			height: 154px;
+		}
+		.info {
+			padding: 20px 0px 20px 20px;
+			height: 37px;
+			white-space: nowrap;
+			width: 170px;
+			overflow: hidden;
+			cursor: pointer;
+		}
 		.title {
 			font-family: $fontSemiBold;
 			margin-bottom: .4rem;
@@ -369,9 +386,18 @@ nav {
 				line-height: 24px;
 				color: white;
 				opacity: .5;
+				text-decoration: none;
 				&:hover {
 					opacity: 1;
 				}
+			}
+			.free {
+				display: inline-block;
+				position: relative;
+				top: -12px;
+				text-indent: 1px;
+				font-size: 10px;
+				text-decoration: none;
 			}
 		}
 		&.current {
@@ -389,11 +415,24 @@ nav {
 					display: inline-block;
 				}
 			}
+			.download-links {
+				a {
+					color: black;
+				}
+			}
 		}
 		&:hover {
 			.download {
 				display: inline-block;
 			}
+		}
+	}
+	.download-links {
+		padding: 0px 20px 20px;
+		a {
+			display: block;
+			color: white;
+			line-height: 1.5rem;
 		}
 	}
 	&.playing {
@@ -606,7 +645,7 @@ nav {
 				span {
 					padding: 0 20px;
 					display: block;
-					&.genre, &.location {
+					&.genre, &.location, &.total-time {
 						font-size: 0.857rem;
 					}
 				}
@@ -685,6 +724,9 @@ nav {
 						}
 						&.genre {
 							margin-bottom: 15px;
+						}
+						&.total-time {
+							float: right;
 						}
 					}
 				}
@@ -794,7 +836,7 @@ nav {
 			line-height: 66px;
 		}
 		.share-links {
-			margin-right: 0px;
+			margin-right: 10px;
 			float: right;
 			text-align: center;
 			height: 66px;

@@ -1,3 +1,12 @@
+String.prototype.width = (fontStyle) ->
+  f = fontStyle || '12px arial'
+  o = $('<div>' + this + '</div>')
+      .css({ 'position': 'absolute', 'float': 'left', 'white-space': 'nowrap', 'visibility': 'hidden', 'font': f })
+      .appendTo($('body'))
+  w = o.width()
+  o.remove()
+  w
+
 $ ->
 
   $('#logo').click (e) =>
@@ -78,9 +87,16 @@ $ ->
     s = Math.round(pos * @Player.duration)
     @Player.player.seekTo(s)
 
-  $('#playlist').on 'click', '.track', (e) =>
+  $('#playlist').on 'click', '.track .info', (e) =>
     return if !@Player.player
-    @Player.player.seekTo $(e.currentTarget).data('start')
+    @Player.player.seekTo $(e.currentTarget).parents('.track').data('start')
+    console.log 'seekTo', $(e.currentTarget).parents('.track').data('start')
+
+  $('#playlist').on 'click', '.track .download', (e) =>
+    e.preventDefault();
+    e.stopImmediatePropagation();
+    $('#playlist .track.open').removeClass 'open'
+    $(e.currentTarget).parents('.track').addClass 'open'
 
   @Player =
 
@@ -100,7 +116,12 @@ $ ->
       # populate tracks
       tracks = document.createDocumentFragment()
       for track in @setData.tracks
-        $(tracks).append templates.playlist.track.tmpl(track)
+        tw = String(track.title).width('20px "ProximaSemiBold", "Helvetica Neue", Helvetica, Arial, sans-serif')
+        aw = String(track.artist).width('20px "ProximaSemiBold", "Helvetica Neue", Helvetica, Arial, sans-serif')
+        track.titleScrolling = tw > 240
+        track.artistScrolling = aw > 240
+        t = templates.playlist.track.tmpl(track)
+        $(tracks).append t
         track.active = false
       $playlist.html tracks
 

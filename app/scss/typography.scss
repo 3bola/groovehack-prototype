@@ -100,13 +100,18 @@ p {
 
 a:hover, a:active {
   outline: none;
+  color: $hover-color;
 }
 
 a, a:active, a:visited {
   color: $link-color;
+  font-weight: bold;
+  transition: color .1s ease-in-out;
 }
 
-a:hover {}
+a:hover {
+  color: $hover-color;
+}
 
 blockquote {}
 
@@ -185,7 +190,8 @@ dl.horizontal {
     width: 40%;
   }
   dd {
-
+    margin-left: 40%;
+    line-height: 1.25rem;
   }
 }
 

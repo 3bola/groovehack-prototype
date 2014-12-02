@@ -248,7 +248,26 @@ body {
 
 #page {
   position: relative;
-  min-height: 100%; }
+  min-height: 100%;
+  -webkit-transition: -webkit-transform 0.2s ease-in-out;
+          transition: transform 0.2s ease-in-out; }
+
+#overlay {
+  display: none;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  opacity: 0;
+  z-index: 100;
+  -webkit-transition: opacity 0.2s ease-in-out;
+          transition: opacity 0.2s ease-in-out; }
+  #overlay.show {
+    display: block; }
 
 nav ul {
   margin: 0; }
@@ -324,6 +343,44 @@ nav ul {
           background-color: rgba(255, 255, 255, 0.1); }
       #header-region nav ul li.icon i {
         font-size: 1.25rem; }
+  #header-region .open-mobile-menu {
+    display: none;
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    padding: 23px; }
+    #header-region .open-mobile-menu span {
+      display: block;
+      width: 20px;
+      height: 3px;
+      margin-bottom: 4px;
+      background-color: white; }
+
+#mobile-menu {
+  display: none;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 80%;
+  height: 100%;
+  background-color: black;
+  z-index: 1000;
+  -webkit-transform: translateX(-100%);
+      -ms-transform: translateX(-100%);
+          transform: translateX(-100%);
+  -webkit-transition: -webkit-transform 0.2s ease-in-out;
+          transition: transform 0.2s ease-in-out; }
+
+body.mobile-menu-open #page {
+  -webkit-transform: translateX(80%);
+      -ms-transform: translateX(80%);
+          transform: translateX(80%); }
+body.mobile-menu-open #mobile-menu {
+  -webkit-transform: translateX(0%);
+      -ms-transform: translateX(0%);
+          transform: translateX(0%); }
+body.mobile-menu-open #overlay {
+  opacity: 0.6; }
 
 #background-region {
   position: absolute;
@@ -560,11 +617,15 @@ nav ul {
     #playlist .track:hover .download {
       display: inline-block; }
   #playlist .download-links {
-    padding: 0px 20px 20px; }
+    padding: 8px 20px 20px;
+    text-align: center; }
     #playlist .download-links a {
-      display: block;
+      display: inline;
       color: white;
-      line-height: 1.5rem; }
+      line-height: 1.5rem;
+      margin: 0px 0px; }
+      #playlist .download-links a img {
+        width: 120px; }
   #playlist.playing .track .links .now-playing span {
     -webkit-animation-name: playingBars;
             animation-name: playingBars;
@@ -665,20 +726,6 @@ nav ul {
         left: 81%; }
       #timeline .bar .tracks .track.track-9 {
         left: 94%; }
-
-@media all and (min-width: 1250px) {
-  .page.set #content {
-    width: 1183px;
-    margin: 0px auto; }
-  #player {
-    width: 1183px; }
-  #video {
-    width: 873px;
-    height: 491px; }
-  #timeline {
-    width: 873px; }
-  #playlist {
-    height: 533px; } }
 
 .slideshow {
   position: relative;
@@ -915,3 +962,33 @@ nav ul {
   background-color: rgba(255, 0, 0, 0.2); }
   .ad h3 {
     display: none; }
+
+@media all and (min-width: 1250px) {
+  .page.set #content {
+    width: 1183px;
+    margin: 0px auto; }
+  #player {
+    width: 1183px; }
+  #video {
+    width: 873px;
+    height: 491px; }
+  #timeline {
+    width: 873px; }
+  #playlist {
+    height: 533px; } }
+
+@media all and (max-width: 1000px) {
+  .thumbnail-list ul li {
+    width: 49.5%; }
+    .thumbnail-list ul li:nth-child(2n) {
+      margin-right: 0; }
+  #header-region #logo {
+    margin: 0 auto;
+    float: none;
+    width: 230px; }
+  #header-region nav {
+    display: none; }
+  #header-region .open-mobile-menu {
+    display: block; }
+  #mobile-menu {
+    display: block; } }

@@ -16,6 +16,25 @@ body {
 	position: relative;
 	min-height: 100%;
 	//padding-bottom: 76px;
+	transition: transform .2s ease-in-out;
+}
+
+#overlay {
+	display: none;
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	right: 0px;
+	bottom: 0px;
+	width: 100%;
+	height: 100%;
+	background-color: black;
+	opacity: 0;
+	z-index: 100;
+	transition: opacity .2s ease-in-out;
+	&.show {
+		display: block;
+	}
 }
 
 // Navigation
@@ -119,6 +138,47 @@ nav {
 				}
 			}
 		}
+	}
+	.open-mobile-menu {
+		display: none;
+		position: absolute;
+		width: 20px;
+		height: 20px;
+		padding: 23px;
+		span {
+			display: block;
+			width: 20px;
+			height: 3px;
+			margin-bottom: 4px;
+			background-color: white;
+		}
+	}
+}
+
+// Mobile menu
+
+#mobile-menu {
+	display: none;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 80%;
+	height: 100%;
+	background-color: black;
+	z-index: 1000;
+	transform: translateX(-100%);
+	transition: transform .2s ease-in-out;
+}
+
+body.mobile-menu-open {
+	#page {
+		transform: translateX(80%);
+	}
+	#mobile-menu {
+		transform: translateX(0%);
+	}
+	#overlay {
+		opacity: .6;
 	}
 }
 
@@ -428,11 +488,16 @@ nav {
 		}
 	}
 	.download-links {
-		padding: 0px 20px 20px;
+		padding: 8px 20px 20px;
+		text-align: center;
 		a {
-			display: block;
+			display: inline;
 			color: white;
 			line-height: 1.5rem;
+			margin: 0px 0px;
+			img {
+				width: 120px;
+			}
 		}
 	}
 	&.playing {
@@ -523,28 +588,6 @@ nav {
 				&.track-9 { left: 94%; }
 			}
 		}
-	}
-}
-
-@media all and(min-width: 1250px) {
-	.page.set {
-		#content {
-			width: 1183px;
-			margin: 0px auto;
-		}
-	}
-	#player {
-		width: 1183px;
-	}
-	#video {
-		width: 873px;
-		height: 491px;
-	}
-	#timeline {
-		width: 873px;
-	}
-	#playlist {
-		height: 533px;
 	}
 }
 
@@ -864,4 +907,51 @@ nav {
 	width: 300px;
 	height: 250px;
 	background-color: rgba(255, 0, 0, 0.2);
+}
+
+@media all and (min-width: 1250px) {
+	.page.set {
+		#content {
+			width: 1183px;
+			margin: 0px auto;
+		}
+	}
+	#player {
+		width: 1183px;
+	}
+	#video {
+		width: 873px;
+		height: 491px;
+	}
+	#timeline {
+		width: 873px;
+	}
+	#playlist {
+		height: 533px;
+	}
+}
+
+@media all and (max-width: 1000px) {
+	.thumbnail-list ul li {
+		width: 49.5%;
+		&:nth-child(2n) {
+			margin-right: 0;
+		}
+	}
+	#header-region {
+		#logo {
+			margin: 0 auto;
+			float: none;
+			width: 230px;
+		}
+		nav {
+			display: none;
+		}
+		.open-mobile-menu {
+			display: block;
+		}
+	}
+	#mobile-menu {
+		display: block;
+	}
 }

@@ -15,9 +15,9 @@ this["templates"]["playlist"]["track"]["tmpl"] = Handlebars.template({"1":functi
   },"5":function(depth0,helpers,partials,data) {
   return " scroll";
   },"7":function(depth0,helpers,partials,data) {
-  return "<marquee behavior=\"scroll\" direction=\"left\" scrollamount=\"3\">";
+  return "<marquee behavior=\"alternate\" direction=\"left\" scrollamount=\"1\">&nbsp;&nbsp;&nbsp;&nbsp;";
   },"9":function(depth0,helpers,partials,data) {
-  return "</marquee>";
+  return "&nbsp;&nbsp;&nbsp;&nbsp;</marquee>";
   },"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
   var stack1, helper, functionType="function", helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression, buffer = "<div class=\"track\" data-start=\""
     + escapeExpression(((helper = (helper = helpers.startsAt || (depth0 != null ? depth0.startsAt : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"startsAt","hash":{},"data":data}) : helper)))
@@ -44,5 +44,5 @@ this["templates"]["playlist"]["track"]["tmpl"] = Handlebars.template({"1":functi
   buffer += escapeExpression(((helper = (helper = helpers.artist || (depth0 != null ? depth0.artist : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"artist","hash":{},"data":data}) : helper)));
   stack1 = helpers['if'].call(depth0, (depth0 != null ? depth0.artistScrolling : depth0), {"name":"if","hash":{},"fn":this.program(9, data),"inverse":this.noop,"data":data});
   if (stack1 != null) { buffer += stack1; }
-  return buffer + "</div>\n  </div>\n  <div class=\"download-links\">\n    <a href=\"#\" class=\"download-link itunes\">iTunes</a>\n    <a href=\"#\" class=\"download-link beatport\">Beatport</a>\n    <a href=\"#\" class=\"download-link juno\">Juno Download</a>\n  </div>\n</div>";
+  return buffer + "</div>\n  </div>\n  <div class=\"download-links\">\n    <a href=\"#\" class=\"download-link itunes\"><img src=\"img/logo-appstore.svg\"></a>\n    <a href=\"#\" class=\"download-link beatport\"><img src=\"img/logo-beatport.png\"></a>\n  </div>\n</div>";
 },"useData":true});

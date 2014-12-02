@@ -4,12 +4,11 @@
     <a href="{{link}}" class="download{{#if free}} is-free{{/if}}"><i class="fa fa-download"></i>{{#if free}}<span class="free">FREE</span>{{/if}}</a>
   </div>
   <div class="info">
-    <div class="title{{#if titleScrolling}} scroll{{/if}}">{{#if titleScrolling}}<marquee behavior="scroll" direction="left" scrollamount="3">{{/if}}{{title}}{{#if titleScrolling}}</marquee>{{/if}}</div>
-    <div class="artist">{{#if artistScrolling}}<marquee behavior="scroll" direction="left" scrollamount="3">{{/if}}{{artist}}{{#if artistScrolling}}</marquee>{{/if}}</div>
+    <div class="title{{#if titleScrolling}} scroll{{/if}}">{{#if titleScrolling}}<marquee behavior="alternate" direction="left" scrollamount="1">&nbsp;&nbsp;&nbsp;&nbsp;{{/if}}{{title}}{{#if titleScrolling}}&nbsp;&nbsp;&nbsp;&nbsp;</marquee>{{/if}}</div>
+    <div class="artist">{{#if artistScrolling}}<marquee behavior="alternate" direction="left" scrollamount="1">&nbsp;&nbsp;&nbsp;&nbsp;{{/if}}{{artist}}{{#if artistScrolling}}&nbsp;&nbsp;&nbsp;&nbsp;</marquee>{{/if}}</div>
   </div>
   <div class="download-links">
-    <a href="#" class="download-link itunes">iTunes</a>
-    <a href="#" class="download-link beatport">Beatport</a>
-    <a href="#" class="download-link juno">Juno Download</a>
+    <a href="#" class="download-link itunes"><img src="img/logo-appstore.svg"></a>
+    <a href="#" class="download-link beatport"><img src="img/logo-beatport.png"></a>
   </div>
 </div>

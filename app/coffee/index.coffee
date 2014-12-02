@@ -24,6 +24,15 @@ $ ->
       when 'set' then @Player.initPlayer Data.Sets[0]
       else @Player.destroyPlayer()
 
+  $('.open-mobile-menu').click (e) =>
+    e.preventDefault()
+    $('#overlay').addClass 'show'
+    $('body').addClass 'mobile-menu-open'
+
+  $('#overlay').click (e) =>
+    $('#overlay').removeClass 'show'
+    $('body').removeClass 'mobile-menu-open'
+
   $('.slideshow').each ->
 
     $(this).data 'current-slide', 0
@@ -36,7 +45,8 @@ $ ->
 
     goTo = (n) =>
       slides = $('.slide', this)
-      return if n < 0 or n >= slides.length
+      n = slides.length - 1 if n < 0
+      n = 0 if n >= slides.length
       $('.slides', this).css 'transform', 'translateX(-' + n * slides.width() + 'px)'
       $(this).data 'current-slide', n
       $('.slide.active', this).removeClass 'active'
@@ -89,6 +99,7 @@ $ ->
 
   $('#playlist').on 'click', '.track .info', (e) =>
     return if !@Player.player
+    $('#playlist .track.open').removeClass 'open'
     @Player.player.seekTo $(e.currentTarget).parents('.track').data('start')
     console.log 'seekTo', $(e.currentTarget).parents('.track').data('start')
 

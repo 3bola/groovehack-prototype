@@ -384,7 +384,7 @@ nav ul {
   position: absolute;
   top: 0px;
   left: 0px;
-  width: 80%;
+  width: 450px;
   height: 100%;
   background-color: black;
   z-index: 1000;
@@ -393,36 +393,45 @@ nav ul {
           transform: translateX(-100%);
   -webkit-transition: -webkit-transform 0.2s ease-in-out;
           transition: transform 0.2s ease-in-out; }
-  #mobile-menu nav ul {
-    padding: 20px; }
-    #mobile-menu nav ul li {
-      display: block;
-      border-bottom: 1px solid #222; }
-      #mobile-menu nav ul li:last-child {
-        border-bottom: none; }
-      #mobile-menu nav ul li a {
-        display: block;
-        font-size: 1.5rem;
-        text-decoration: none;
-        line-height: 4rem; }
-  #mobile-menu nav.secondary {
-    position: absolute;
+  #mobile-menu .container {
     width: 100%;
-    bottom: 0; }
-    #mobile-menu nav.secondary ul li a {
-      font-size: 1.2rem;
-      line-height: 3rem; }
+    height: 100%;
+    background-color: black; }
+  #mobile-menu nav {
+    width: 100%;
+    background-color: black; }
+    #mobile-menu nav ul {
+      padding: 20px; }
+      #mobile-menu nav ul li {
+        display: block;
+        border-bottom: 1px solid #222; }
+        #mobile-menu nav ul li:last-child {
+          border-bottom: none; }
+        #mobile-menu nav ul li a {
+          display: block;
+          font-size: 1.5rem;
+          text-decoration: none;
+          line-height: 4rem; }
+    #mobile-menu nav.secondary {
+      position: absolute;
+      width: 100%;
+      bottom: 0; }
+      #mobile-menu nav.secondary ul li a {
+        font-size: 1.2rem;
+        line-height: 3rem; }
 
-body.mobile-menu-open #page {
-  -webkit-transform: translateX(80%);
-      -ms-transform: translateX(80%);
-          transform: translateX(80%); }
-body.mobile-menu-open #mobile-menu {
-  -webkit-transform: translateX(0%);
-      -ms-transform: translateX(0%);
-          transform: translateX(0%); }
-body.mobile-menu-open #overlay {
-  opacity: 0.6; }
+body.mobile-menu-open {
+  overflow: hidden; }
+  body.mobile-menu-open #page {
+    -webkit-transform: translateX(450px);
+        -ms-transform: translateX(450px);
+            transform: translateX(450px); }
+  body.mobile-menu-open #mobile-menu {
+    -webkit-transform: translateX(0px);
+        -ms-transform: translateX(0px);
+            transform: translateX(0px); }
+  body.mobile-menu-open #overlay {
+    opacity: 0.6; }
 
 #background-region {
   position: absolute;
@@ -1023,6 +1032,8 @@ body.mobile-menu-open #overlay {
     height: 533px; } }
 
 @media all and (max-width: 1000px) {
+  html, body {
+    min-width: 650px; }
   .slideshow .slide img {
     width: 80%; }
   .thumbnail-list ul li {

@@ -18,6 +18,8 @@ $ ->
   $('*[data-target]').click (e) =>
     e.preventDefault()
     $('html, body').scrollTop 0
+    $('#overlay').removeClass 'show'
+    $('body').removeClass 'mobile-menu-open'
     $('.pages .page.active').removeClass 'active'
     $('.pages .page.' + $(e.currentTarget).data('target')).addClass 'active'
     switch $(e.currentTarget).data('target')
@@ -88,6 +90,7 @@ $ ->
       @Player.player.playVideo()
 
   $('#timeline .bar').on 'click', (e) =>
+    e.preventDefault()
     return if !@Player.player
     w = $('#timeline .line').width()
     pos = (e.pageX - e.currentTarget.offsetLeft) - 10
@@ -97,11 +100,35 @@ $ ->
     s = Math.round(pos * @Player.duration)
     @Player.player.seekTo(s)
 
+  offset = 0
+  $('#timeline .bar').on 'mousedown', (e) =>
+    e.preventDefault()
+    return if !@Player.player
+    @Player.dragging = true
+    offset = e.currentTarget.offsetLeft
+    updatePos = (mouseX) =>
+      w = $('#timeline .line').width()
+      pos = (mouseX - offset) - 10
+      pos = 0 if pos < 0
+      pos = w if pos > w
+      pos = (pos / w) * 100
+      $('#timeline .bar .pos').css 'left', pos + '%'
+    updatePos()
+    $(document).on 'mousemove.bar', (e) =>
+      e.preventDefault()
+      updatePos e.pageX
+    $(document).on 'mouseup.bar', (e) =>
+      e.preventDefault()
+      updatePos e.pageX
+      @Player.dragging = false
+      $(document).off 'mousemove.bar'
+      $(document).off 'mouseup.bar'
+
+
   $('#playlist').on 'click', '.track .info', (e) =>
     return if !@Player.player
     $('#playlist .track.open').removeClass 'open'
     @Player.player.seekTo $(e.currentTarget).parents('.track').data('start')
-    console.log 'seekTo', $(e.currentTarget).parents('.track').data('start')
 
   $('#playlist').on 'click', '.track .download', (e) =>
     e.preventDefault();
@@ -110,6 +137,8 @@ $ ->
     $(e.currentTarget).parents('.track').addClass 'open'
 
   @Player =
+
+    dragging: false
 
     destroyPlayer: ->
       @player = null
@@ -152,7 +181,7 @@ $ ->
               l.active = true
               $playlist.find('.track.current').removeClass 'current'
               $playlist.find('.track[data-start="' + l.startsAt + '"]').addClass 'current'
-            $controls.find('.pos').css 'left', (@currentTime / @duration) * 100 + '%'
+            $controls.find('.pos').css 'left', (@currentTime / @duration) * 100 + '%' if !@dragging
             s = Math.floor(@currentTime%60)
             s = '0' + s if s < 10
             $controls.find('.current-time').html Math.floor(@currentTime/60) + ':' + s

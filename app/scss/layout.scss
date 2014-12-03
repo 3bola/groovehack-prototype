@@ -7,7 +7,7 @@ html {
 }
 
 body {
-	background-color: #000;
+	background-color: #111;
 	min-height: 100%;
 	height: 100%;
 }
@@ -168,6 +168,37 @@ nav {
 	z-index: 1000;
 	transform: translateX(-100%);
 	transition: transform .2s ease-in-out;
+	nav {
+		ul {
+			padding: 20px;
+			li {
+				display: block;
+				border-bottom: 1px solid #222;
+				&:last-child {
+					border-bottom: none;
+				}
+				a {
+					display: block;
+					font-size: 1.5rem;
+					text-decoration: none;
+					line-height: 4rem;
+				}
+			}
+		}
+		&.secondary {
+			position: absolute;
+			width: 100%;
+			bottom: 0;
+			ul {
+				li {
+					a {
+						font-size: 1.2rem;
+						line-height: 3rem;
+					}
+				}
+			}
+		}
+	}
 }
 
 body.mobile-menu-open {
@@ -200,7 +231,7 @@ body.mobile-menu-open {
 		width: 100%;
 		height: 300px;
 		content: " ";
-		@include vertical-gradient(transparent, black);
+		@include vertical-gradient(transparent, #111);
 	}
 }
 
@@ -336,7 +367,7 @@ body.mobile-menu-open {
 			width: 100%;
 			height: 300px;
 			content: " ";
-			@include vertical-gradient(transparent, black);
+			@include vertical-gradient(transparent, #111);
 		}
 	}
 }
@@ -363,13 +394,10 @@ body.mobile-menu-open {
 // Player
 
 #player {
+	position: relative;
 	width: 960px;
 	margin: 0 auto 10px;
 }
-
-// 640x360
-// 853x480
-// 1280x720
 
 #video {
 	width: 650px;
@@ -379,7 +407,9 @@ body.mobile-menu-open {
 }
 
 #playlist {
-	float: right;
+	position: absolute;
+	top: 0;
+	right: 0;
 	width: 300px;
 	height: 408px;
 	background-color: transparent;
@@ -679,7 +709,7 @@ body.mobile-menu-open {
 			cursor: pointer;
 			background-size: cover;
 			background-position: 50% 50%;
-			.details {
+			.thumbnail-details {
 				position: absolute;
 				width: 100%;
 				font-family: $fontSemiBold;
@@ -713,7 +743,7 @@ body.mobile-menu-open {
 			    margin-left: -140px;
 			    margin-top: -30px;
 			  }
-				.details {
+				.thumbnail-details {
 					top: 50%;
 					transform: translateY(-50%);
 					text-align: center;
@@ -742,7 +772,7 @@ body.mobile-menu-open {
 				}
 			}
 			&.thumbnail-set {
-				.details {
+				.thumbnail-details {
 					top: 125px;
 					bottom: 0px;
 					padding-bottom: 0px;
@@ -774,7 +804,7 @@ body.mobile-menu-open {
 					}
 				}
 				&:hover {
-					.details {
+					.thumbnail-details {
 						top: 0px;
 						background-color: rgba(0, 0, 0, 0.8);
 					}
@@ -797,76 +827,24 @@ body.mobile-menu-open {
 // Details columns
 
 .details {
-	overflow: hidden;
-	height: auto;
 	position: relative;
-	@extend .clearfix;
 	margin-bottom: 10px;
+	height: 327px;
 	.details-col {
-		@extend .clearfix;
+		position: relative;
+		margin-right: 310px;
+		height: 100%;
+	}
+	.share-col {
 		position: absolute;
-		overflow: hidden;
-		height: 100%;
-		margin-right: 310px;
-	}
-	.credits-col {
-		margin-right: 310px;
-	}
-	.other-col {
-		float: right;
+		top: 0;
+		right: 0;
 		width: 300px;
-		height: 326px;
-	}
-	.bio, .overview {
-		//float: left;
-		//width: 59%;
-		//margin-right: 1%;
-		margin-right: 310px;
-		background-color: rgba(0, 0, 0, 0.4);
 		height: 100%;
-		overflow-y: scroll;
-		overflow-x: hidden;
-		&::-webkit-scrollbar {
-      background-clip: padding-box;
-      width: 20px;
-    }
-    &::-webkit-scrollbar-button {
-      display: none;
-    }
-    &::-webkit-scrollbar-track {
-      background: rgba(255, 255, 255, 0.0);
-      border-radius: 0px;
-    }
-    &::-webkit-scrollbar-thumb {
-      background-color: rgba(255, 255, 255, 0.6);
-      width: 5px;
-      border-radius: 10px;
-      border: 8px solid rgba(0, 0, 0, 0);
-      background-clip: padding-box;
-    }
-    &::-webkit-scrollbar-thumb:hover {
-      background-color: rgba(255, 255, 255, 0.95);
-      border: 8px solid rgba(0, 0, 0, 0);
-    }
-    &::-webkit-scrollbar-corner {
-      background-color: transparent;
-    }
-	}
-	.info {
-		float: right;
-		width: 300px;
-		background-color: rgba(0, 0, 0, 0.4);
-		height: 100%;
-	}
-	.other {
-
-	}
-	.content {
-		padding: 0px 30px 30px;
-	}
-	.share {
-		background-color: rgba(0, 0, 0, 0.4);
-		margin-bottom: 10px;
+		.share {
+			margin-bottom: 10px;
+			background-color: rgba(0, 0, 0, 0.4);
+		}
 		.content {
 			@extend .clearfix;
 			padding: 0px;
@@ -898,6 +876,50 @@ body.mobile-menu-open {
 			}
 		}
 	}
+	.content {
+		padding: 0px 30px 30px;
+	}
+	.bio, .overview {
+		margin-right: 310px;
+		background-color: rgba(0, 0, 0, 0.4);
+		height: 100%;
+		overflow-x: hidden;
+		overflow-y: scroll;
+		&::-webkit-scrollbar {
+			background-clip: padding-box;
+			width: 20px;
+		}
+		&::-webkit-scrollbar-button {
+			display: none;
+		}
+		&::-webkit-scrollbar-track {
+			background: rgba(255, 255, 255, 0.0);
+			border-radius: 0px;
+		}
+		&::-webkit-scrollbar-thumb {
+			background-color: rgba(255, 255, 255, 0.6);
+			width: 5px;
+			border-radius: 10px;
+			border: 8px solid rgba(0, 0, 0, 0);
+			background-clip: padding-box;
+		}
+		&::-webkit-scrollbar-thumb:hover {
+			background-color: rgba(255, 255, 255, 0.95);
+			border: 8px solid rgba(0, 0, 0, 0);
+		}
+		&::-webkit-scrollbar-corner {
+			background-color: transparent;
+		}
+	}
+	.info {
+		position: absolute;
+		top: 0;
+		right: 0;
+		width: 300px;
+		background-color: rgba(0, 0, 0, 0.4);
+		height: 100%;
+	}
+	
 }
 
 .ad {
@@ -932,6 +954,9 @@ body.mobile-menu-open {
 }
 
 @media all and (max-width: 1000px) {
+	.slideshow .slide img {
+		width: 80%;
+	}
 	.thumbnail-list ul li {
 		width: 49.5%;
 		&:nth-child(2n) {
@@ -951,7 +976,53 @@ body.mobile-menu-open {
 			display: block;
 		}
 	}
+	#footer-region {
+		display: none;
+	}
 	#mobile-menu {
 		display: block;
+	}
+	.details {
+		height: auto;
+		.details-col, .share-col {
+			position: static;
+			width: 100%;
+			margin: 0 0 10px;
+		}
+		.bio, .overview {
+			width: 100%;
+			margin: 0 0 10px;
+			height: 300px;
+		}
+		.info {
+			position: static;
+			width: 100%;
+		}
+		.ad {
+			display: none;
+		}
+	}
+	.page.set {
+		#hero {
+			height: 180px;
+		}
+		#content {
+			width: 100%;
+		}
+	}
+	#player {
+		width: 100%;
+		#video {
+			margin: 0 auto;
+		}
+		#timeline {
+			margin: 0 auto 10px;
+		}
+		#playlist {
+			position: static;
+			width: 650px;
+			margin: 0 auto 80px;
+			height: 300px;
+		}
 	}
 }

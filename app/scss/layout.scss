@@ -186,9 +186,9 @@ nav {
 				}
 				a {
 					display: block;
-					font-size: 1.5rem;
+					font-size: 2.6rem;
 					text-decoration: none;
-					line-height: 4rem;
+					line-height: 5rem;
 				}
 			}
 		}
@@ -199,8 +199,8 @@ nav {
 			ul {
 				li {
 					a {
-						font-size: 1.2rem;
-						line-height: 3rem;
+						font-size: 2rem;
+						line-height: 4rem;
 					}
 				}
 			}
@@ -584,6 +584,21 @@ body.mobile-menu-open {
 		line-height: 42px;
 		text-align: center;
 	}
+	.volume {
+		cursor: pointer;
+		.fa-volume-off {
+			display: none;
+			margin-right: 7px;
+		}
+		&.muted {
+			.fa-volume-off {
+				display: inline-block;
+			}
+			.fa-volume-up {
+				display: none;
+			}
+		}
+	}
 	.bar {
 		position: relative;
 		display: block;
@@ -963,7 +978,7 @@ body.mobile-menu-open {
 
 @media all and (max-width: 1000px) {
 	html, body {
-		min-width: 650px;
+		//min-width: 650px;
 	}
 	.slideshow .slide img {
 		width: 80%;
@@ -1036,4 +1051,46 @@ body.mobile-menu-open {
 			height: 300px;
 		}
 	}
+}
+
+@media all and (max-width: 640px) {
+	#hero {
+		height: 300px;
+	}
+	#player {
+		#video {
+			width: 640px;
+		}
+		#timeline {
+			width: 640px;
+		}
+		#playlist {
+			width: 640px;
+			height: 280px;
+			margin-bottom: 10px;
+			.track {
+				height: 90px;
+				.info {
+					height: 50px;
+				}
+				.title {
+					font-size: 1.5rem;
+				}
+				.artist {
+					font-size: 1.3rem;
+				}
+				.links {
+					.download {
+						font-size: 30px;
+						line-height: 30px;
+					}
+					.now-playing {
+						top: -25px;
+						margin-right: 20px;
+					}
+				}
+			}
+		}
+	}
+	
 }

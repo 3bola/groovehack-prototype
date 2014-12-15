@@ -89,6 +89,15 @@ $ ->
     else
       @Player.player.playVideo()
 
+  $('#timeline .volume').on 'click', (e) =>
+    return if !@Player.player
+    if $('#timeline .volume').hasClass 'muted'
+      $('#timeline .volume').removeClass 'muted'
+      @Player.player.unMute()
+    else
+      $('#timeline .volume').addClass 'muted'
+      @Player.player.mute()
+
   $('#timeline .bar').on 'click', (e) =>
     e.preventDefault()
     return if !@Player.player
@@ -133,8 +142,11 @@ $ ->
   $('#playlist').on 'click', '.track .download', (e) =>
     e.preventDefault();
     e.stopImmediatePropagation();
-    $('#playlist .track.open').removeClass 'open'
-    $(e.currentTarget).parents('.track').addClass 'open'
+    if $(e.currentTarget).parents('.track').hasClass 'open'
+      $('#playlist .track.open').removeClass 'open'
+    else
+      $('#playlist .track.open').removeClass 'open'
+      $(e.currentTarget).parents('.track').addClass 'open'
 
   @Player =
 
@@ -204,6 +216,7 @@ $ ->
         $('#timeline .line .tracks').html fragment
         $('#timeline .total-time').html Math.floor(@duration/60) + ':' + Math.floor(@duration%60)
         $('#timeline .current-time').html '0:00';
+        $('video').attr 'webkit-playsinline', 'true'
 
       @onPlayerStateChange = (e) =>
         switch e.data
@@ -217,7 +230,7 @@ $ ->
           height: '100%'
           width: '100%'
           videoId: setData.videoId
-          playerVars: { rel: 0, theme: 'light', showinfo: 0, controls: 0, autohide: 1, modestbranding: 1, cc_load_policy: 0, iv_load_policy: 3 }
+          playerVars: { rel: 0, theme: 'light', showinfo: 0, controls: 0, autohide: 1, modestbranding: 1, cc_load_policy: 0, iv_load_policy: 3, playsinline: 1 }
           events: { 'onReady': @onPlayerReady, 'onStateChange': @onPlayerStateChange }
 
 

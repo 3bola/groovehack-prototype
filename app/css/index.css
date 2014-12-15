@@ -409,16 +409,16 @@ nav ul {
           border-bottom: none; }
         #mobile-menu nav ul li a {
           display: block;
-          font-size: 1.5rem;
+          font-size: 2.6rem;
           text-decoration: none;
-          line-height: 4rem; }
+          line-height: 5rem; }
     #mobile-menu nav.secondary {
       position: absolute;
       width: 100%;
       bottom: 0; }
       #mobile-menu nav.secondary ul li a {
-        font-size: 1.2rem;
-        line-height: 3rem; }
+        font-size: 2rem;
+        line-height: 4rem; }
 
 body.mobile-menu-open {
   overflow: hidden; }
@@ -734,6 +734,15 @@ body.mobile-menu-open {
     height: 42px;
     line-height: 42px;
     text-align: center; }
+  #timeline .volume {
+    cursor: pointer; }
+    #timeline .volume .fa-volume-off {
+      display: none;
+      margin-right: 7px; }
+    #timeline .volume.muted .fa-volume-off {
+      display: inline-block; }
+    #timeline .volume.muted .fa-volume-up {
+      display: none; }
   #timeline .bar {
     position: relative;
     display: block;
@@ -1032,8 +1041,6 @@ body.mobile-menu-open {
     height: 533px; } }
 
 @media all and (max-width: 1000px) {
-  html, body {
-    min-width: 650px; }
   .slideshow .slide img {
     width: 80%; }
   .thumbnail-list ul li {
@@ -1082,3 +1089,29 @@ body.mobile-menu-open {
       width: 650px;
       margin: 0 auto 80px;
       height: 300px; } }
+
+@media all and (max-width: 640px) {
+  #hero {
+    height: 300px; }
+  #player #video {
+    width: 640px; }
+  #player #timeline {
+    width: 640px; }
+  #player #playlist {
+    width: 640px;
+    height: 280px;
+    margin-bottom: 10px; }
+    #player #playlist .track {
+      height: 90px; }
+      #player #playlist .track .info {
+        height: 50px; }
+      #player #playlist .track .title {
+        font-size: 1.5rem; }
+      #player #playlist .track .artist {
+        font-size: 1.3rem; }
+      #player #playlist .track .links .download {
+        font-size: 30px;
+        line-height: 30px; }
+      #player #playlist .track .links .now-playing {
+        top: -25px;
+        margin-right: 20px; } }
